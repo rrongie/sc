@@ -11,7 +11,7 @@
             <table id="accounts-view1"class="table table-striped" cellspacing="0">
                
             <thead>
-              <a class="add"href="#"><div class="text-center"> <p class="btn btn-xs btn-primary"><i class="fa fa-plus"></i> Add User</p></div></a>
+              <a class="add"href="#"><div class="text-center"> <p class="btn btn-xs btn-primary btn-outline"><i class="fa fa-plus"></i> Add User</p></div></a>
                 <tr>  
                       <th>Id</th>
                       <th>Username</th>
@@ -83,7 +83,6 @@
 
 <!-- end of modal-->
 
-
 <script type="text/javascript">
     
                 $(document).ready(function() {
@@ -97,9 +96,9 @@
               "fnRender": function(oObj) {
                   var a;
                   var b;  
-                    a = '<a class="con-info label label-success" data-conid="'+oObj.aData[0]+'" href="#"><i class="fa fa-pencil-square-o"></i></a> ';
+                    a = '<a class="con-info label label-success" rel="tooltip" data-placement="bottom"data-conid="'+oObj.aData[0]+'" href="#"><i class="fa fa-pencil-square-o"></i></a> ';
                     
-                    b = '<a class="test label label-danger" href="remove_user/'+oObj.aData[0]+'"><i class="fa fa-times"></i></a> ';
+                    b = '<a class="test label label-danger" href="remove_user/'+oObj.aData[0]+'"><i class="fa fa-times" rel="tooltip" data-placement="bottom"></i></a> ';
                     return a + b;
               },
                 "aTargets": [ 4 ],
@@ -144,8 +143,8 @@ $('#myModal1').modal('show');
 
 </script>
 
-
-
-
-
-
+<script language="javascript">
+   $(document).ready(function(){
+  $("[rel='tooltip']").tooltip();
+    })
+</script>

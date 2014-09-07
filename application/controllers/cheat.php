@@ -30,14 +30,21 @@ public function check_login_fom(){
 
 	  if ($this->form_validation->run() == FALSE){
     	 
-	  		echo validation_errors();
+	  	$this->load->view('ajax/ajax_view_login');
      
  	} else {
    		
-   		echo"username :"; echo $username; echo "<br>";
-   		echo"password :"; echo $password; echo"<br>";	
+   		echo"HELLO! welcome back, "; echo $username;
+   			
+   		$this->load->view('ajax/ajax_view_login');
    	}
 }
+
+
+public function view_login(){
+	$this->load->view('ajax/ajax_view_login');
+}
+
 
 public function form_validation(){
 	$this->load->view('template/header');

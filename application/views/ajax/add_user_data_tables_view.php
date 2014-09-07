@@ -1,3 +1,4 @@
+
 <div class="form2">
 
 <form id="form_edit">
@@ -12,12 +13,12 @@
 <hr>
 <div class="text-center">
 <input type="button" id="submit" value="Save"class="btn btn-primary"> &nbsp;
+
+  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+</div>
 <div id="general-ajax-load" style="display:none">
 		<img src="<?php echo base_url() . "assets/images/gif-load.gif";?>">
 	</div>
-  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-</div>
-
 </form>
 
 <script type="text/javascript">
