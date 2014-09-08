@@ -24,7 +24,7 @@ $.ajax({
 <fieldset>
 
 <!-- Form Name -->
-<div id="error_message" style="color:red" class="text-center"></div>
+
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="username">Username</label>   
@@ -53,4 +53,3 @@ $.ajax({
 
 </fieldset>
 </form>
-

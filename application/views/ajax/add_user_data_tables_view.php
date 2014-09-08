@@ -9,7 +9,8 @@
  <input id="email_address" name="email" value=""type="text"><span id="email_verify" class="verify"></span><br />
 <?php echo form_error('email'); ?>
 
-</div>
+
+
 <hr>
 <div class="text-center">
 <input type="button" id="submit" value="Save"class="btn btn-primary"> &nbsp;

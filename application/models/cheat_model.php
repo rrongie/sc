@@ -28,4 +28,10 @@ class Cheat_model extends CI_Model {
     $sql = $this->db->get('position');
     return $sql->result_array();   
     }
+
+    public function get_test(){
+        $sql= $this->db->get('test');
+        return $sql->result_array();
+    }
+
 }

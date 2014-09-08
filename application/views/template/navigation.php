@@ -35,7 +35,7 @@
                             <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Form Validation<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-file-o fa-fw"></i>Form Validation<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="<?php echo base_url(). 'cheat/login_form'?>">Modal login + CI (AJAX)</a>
@@ -55,16 +55,23 @@
                       
 
                            <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Data tables<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-database fa-fw"></i>Data tables<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="<?php echo base_url(). 'cheat/data_tables'?>">DataTables + CI</a>
                                 </li>
 
-                               
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
 
-                                
-                           
+                          <li>
+                            <a href="#"><i class="fa fa-fax fa-fw"></i>Ordering<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url(). 'ordering/index'?>">Simple Ordering</a>
+                                </li>
+
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

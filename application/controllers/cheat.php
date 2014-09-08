@@ -158,7 +158,8 @@ echo"delete code by ID here :)";var_dump($id);
 }
 
 public function add_user_data_tables(){
-$account['position'] =$this->cheat_model->get_position();
+$account['position'] = $this->cheat_model->get_position();
+//var_dump($account);
 $this->parser->parse('ajax/add_user_data_tables_view',$account);
 
 }
@@ -166,15 +167,19 @@ $this->parser->parse('ajax/add_user_data_tables_view',$account);
 public function ajax_add_user_data_tables(){
 	$username = $this->input->post('username');
 	$email= $this->input->post('email');
-//	$type = $this->input->post('type');
+ 	$type = $this->input->post('type');
 
 	$this->form_validation->set_rules('username','Username','trim|required|xss_clean');
 	$this->form_validation->set_rules('email','Email','trim|required|xss_clean');
+	//$this->form_validation->set_rules('type','type','trim|required|xss_clean');
 
 	 if($this->form_validation->run()){
 	 	echo"success";
 	 }else {
-       $this->load->view('ajax/add_user_data_tables_view');
+       var_dump($username,$email,$type);
+       $account['position'] = $this->cheat_model->get_position();
+
+	 $this->parser->parse('ajax/add_user_data_tables_view',$account);
 	 }
 }
 

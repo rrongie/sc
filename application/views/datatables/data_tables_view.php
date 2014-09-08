@@ -143,8 +143,3 @@ $('#myModal1').modal('show');
 
 </script>
 
-<script language="javascript">
-   $(document).ready(function(){
-  $("[rel='tooltip']").tooltip();
-    })
-</script>
