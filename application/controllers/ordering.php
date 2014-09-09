@@ -45,7 +45,8 @@ class Ordering extends CI_Controller {
 				);
 			
 			$this->ordering_model->insert_oder($data);
-			
+			$this->session->set_flashdata('success', 'Successfully Add!');
+			//redirect('cheat');
 		}
 }
 
@@ -75,6 +76,33 @@ $this->parser->parse('ajax/ajax_edit_orders',$data);
 
 }
 
+public function validate_edit_order($id){
+
+$form_data = array(
+	'name' => $this->input->post('name'),
+	'order' => $this->input->post('order'),
+	'qty' => $this->input->post('qty'),
+	'price' => $this->input->post('price'),
+	);
+
+$this->form_validation->set_rules('name','name','|required');
+$this->form_validation->set_rules('order','order','|required');
+$this->form_validation->set_rules('qty','qty','|required');
+$this->form_validation->set_rules('price','price','|required');
+
+if($this->form_validation->run() == FALSE){
+ echo validation_errors();
+}else {
+
+     $this->db->where('id',$id);
+     $this->db->update('ordering',$form_data);
+     $this->session->set_flashdata('success_edit','Successfully edit!');
+     redirect('ordering/index');
+
+//echo"update or edit 2line lng yan good luck :3";
+}
+
+}
 }
 
 /* End of file welcome.php */

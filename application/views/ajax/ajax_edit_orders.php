@@ -1,7 +1,10 @@
 
 
 {list}
-
+<?php
+                  $attributes = array('class' => 'form-horizontal');
+                  echo form_open('ordering/validate_edit_order/{id}', $attributes);
+            ?>
     <!-- Text input-->
                         <div class="control-group">
                           <label class="control-label" for="name">Name</label>

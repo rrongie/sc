@@ -31,11 +31,9 @@
                             </div>
                             <!-- /input-group -->
                         </li>
+                     
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-file-o fa-fw"></i>Form Validation<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-file-text fa-fw"></i>Form Validation<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="<?php echo base_url(). 'cheat/login_form'?>">Modal login + CI (AJAX)</a>
@@ -76,7 +74,17 @@
                             <!-- /.nav-second-level -->
                         </li>
                 
-               
+                         <li>
+                            <a href="#"><i class="fa fa-picture-o fa-fw"></i>Upload<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url(). 'upload/index'?>">Upload image</a>
+                                </li>
+
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                 
                        
                     </ul>
                 </div>

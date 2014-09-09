@@ -1,81 +1,48 @@
 <!-- Page Content -->
-  <script type="text/javascript">
-
-
-(function($) {
-    $.fn.drags = function(opt) {
-
-        opt = $.extend({handle:"",cursor:"move"}, opt);
-
-        if(opt.handle === "") {
-            var $el = this;
-        } else {
-            var $el = this.find(opt.handle);
-        }
-
-        return $el.css('cursor', opt.cursor).on("mousedown", function(e) {
-            if(opt.handle === "") {
-                var $drag = $(this).addClass('draggable');
-            } else {
-                var $drag = $(this).addClass('active-handle').parent().addClass('draggable');
-            }
-            var z_idx = $drag.css('z-index'),
-                drg_h = $drag.outerHeight(),
-                drg_w = $drag.outerWidth(),
-                pos_y = $drag.offset().top + drg_h - e.pageY,
-                pos_x = $drag.offset().left + drg_w - e.pageX;
-            $drag.css('z-index', 1000).parents().on("mousemove", function(e) {
-                $('.draggable').offset({
-                    top:e.pageY + pos_y - drg_h,
-                    left:e.pageX + pos_x - drg_w
-                }).on("mouseup", function() {
-                    $(this).removeClass('draggable').css('z-index', z_idx);
-                });
-            });
-            e.preventDefault(); // disable selection
-        }).on("mouseup", function() {
-            if(opt.handle === "") {
-                $(this).removeClass('draggable');
-            } else {
-                $(this).removeClass('active-handle').parent().removeClass('draggable');
-            }
-        });
-
-    }
-})(jQuery);
-
-$('#dragme').drags();
-
-
-  </script>
 <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
                     <h2 class="page-header text-center">Simple Ordering System</h2>
                      
                 </div>
-                
+                     
 
             <div class="panel-body">
-              
 
-               <div class="orders">
-                    <!-- show orders via ajax -->
-               </div>
-                
- <div class="remove col-lg-3" id="dragme"><!-- add order -->
+             
+
+ <div class="col-lg-3"><!-- add order -->
+       
+       
         <div class="well">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <?php
+
+            if ($this->session->flashdata('success')) {
+            echo '<div class="alert alert-success text-center">';
+            echo $this->session->flashdata('success');
+            echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+            echo '</div>';
+      
+            } 
+
+             if ($this->session->flashdata('success_edit')) {
+            echo '<div class="alert alert-success text-center">';
+            echo $this->session->flashdata('success_edit');
+            echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+            echo '</div>';
+      
+            } 
+
+
+            ?>     
             <form id="order_form">
              
-  <div id="stage">
-          Add Order
-   </div> <div id="notification"></div>
+
                         <!-- Text input-->
                         <div class="control-group">
                           <label class="control-label" for="name">Name</label>
                           <div class="controls">
-                            <input id="name" name="name" type="text" placeholder="" class="input-large" autofocus>
+                            <input id="name" name="name" type="text"  required="" autofocus>
                             
                           </div>
                         </div>
@@ -123,7 +90,9 @@ $('#dragme').drags();
         </div>
  </div>   <!-- end of aadd order -->
         
-            
+             <div class="orders">
+                    <!-- show orders via ajax -->
+               </div> 
 
             </div> <!--panel body -->
 
@@ -141,16 +110,14 @@ $('#dragme').drags();
 <script type="text/javascript">
 
 $(document).on('click','#submit',function(){
-
-
+    
     $.ajax({
     method:'POST',
     url: '<?php echo base_url('ordering/insert_order')?>',
-    data: $('#order_form').serialize()
-    }).success(function(data){
-          $('#stage').html($(data).find('#stage *'));
-          $('#notification').text('The page has been successfully loaded');
-    });
+    data: $('#order_form').serialize(),
+    async: false,
+
+});
 
 
 })
@@ -176,7 +143,7 @@ $.ajax({
 $(document).on('click','.close',function(){
     
 $(".remove").fadeOut(400);
-
+ 
 })
 
 $(document).ready(function(){

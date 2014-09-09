@@ -5,7 +5,7 @@
 				$price =$row->price;
 				$total = $qty * $price ;  
 
-				echo '<div class="col-lg-4">';
+				echo '<div class="col-lg-4 pull-left">';
 				echo '<div class="well"> ';
 				
 				echo'<button title="DELETE" data-conid=" '.$row->id.' "  rel="tooltip" data-placement="bottom" class="delete btn btn-xs btn-danger pull-right"><i class="fa fa-times"></i></button>';
@@ -60,13 +60,13 @@
 $(document).on('click','.delete',function(e){
 e.preventDefault();
 var id = $(this).data('conid');
-var $orders =$(this).closest('div');
+var $orders = $(this).closest('div');
 
 $.ajax({
 	type:'GET',
 	url:  "<?php echo base_url().'ordering/delete_order/"+id+"/'?>",
     success: function(){
-     $orders.fadeOut(400, function(){
+     $orders.fadeOut(300, function(){
 		});
     }
 
