@@ -19,5 +19,19 @@ public function delete_order_mo($id){
 	return $result;
 	}
 
+public function get_tots(){
+		$this->db->select('*');
+		$this->db->from('ordering');
+		$query = $this->db->get();
+		return $query->result();
+} 
+
+
+public function get_edit($id){
+	
+	$sql = $this->db->where('id', $id)->get('ordering');
+	return $sql->result();
+}
+
 
 }

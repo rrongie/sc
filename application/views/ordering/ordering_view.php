@@ -57,7 +57,8 @@ $('#dragme').drags();
                 
 
             <div class="panel-body">
-               
+              
+
                <div class="orders">
                     <!-- show orders via ajax -->
                </div>
@@ -67,13 +68,14 @@ $('#dragme').drags();
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             <form id="order_form">
              
-
-
+  <div id="stage">
+          Add Order
+   </div> <div id="notification"></div>
                         <!-- Text input-->
                         <div class="control-group">
                           <label class="control-label" for="name">Name</label>
                           <div class="controls">
-                            <input id="name" name="name" type="text" placeholder="" class="input-large"autofocus required>
+                            <input id="name" name="name" type="text" placeholder="" class="input-large" autofocus>
                             
                           </div>
                         </div>
@@ -87,6 +89,25 @@ $('#dragme').drags();
                           </div>
                         </div>
 
+                        <!-- Text input-->
+                        <div class="control-group">
+                          <label class="control-label" for="qty">Qty:</label>
+                          <div class="controls">
+                            <input id="qty" name="qty" type="number"  style="width: 90px;" required="">
+                            
+                          </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="control-group">
+                          <label class="control-label" for="price">Price:</label>
+                          <div class="controls">
+                            <input id="price" name="price" type="number"  style="width:90px;"placeholder=""required="">
+                            
+                          </div>
+                        </div>
+
+
                         <!-- Button -->
                         <div class="control-group">
                           <label class="control-label" for="submit"></label>
@@ -94,6 +115,7 @@ $('#dragme').drags();
                             <button id="submit" name="submit" class="btn btn btn-primary">ADD</button>
                           </div>
                         </div>
+
 
 
                
@@ -125,9 +147,9 @@ $(document).on('click','#submit',function(){
     method:'POST',
     url: '<?php echo base_url('ordering/insert_order')?>',
     data: $('#order_form').serialize()
-    }).success(function(e){
-      
-        $('.oder_list').html(e);
+    }).success(function(data){
+          $('#stage').html($(data).find('#stage *'));
+          $('#notification').text('The page has been successfully loaded');
     });
 
 
@@ -160,7 +182,8 @@ $(".remove").fadeOut(400);
 $(document).ready(function(){
 
 
-    $('#dragme').drags();
+ //   $('#dragme').drags();
 });
 </script>
+
 

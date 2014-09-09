@@ -27,28 +27,34 @@ class Ordering extends CI_Controller {
 	
 		$this->form_validation->set_rules('name','Name','required');
 		$this->form_validation->set_rules('order','order','required');
+		
+		if ($this->form_validation->run() == FALSE){
+				
+				echo"something wrong we are aware of this :3";
+				
 
-
-		if($this->form_validation->run()){
 			
-
+		}else{
 			$data = array(
 
 				'name'=> 	$name = $this->input->post('name'),
 				'order'=> 	$name = $this->input->post('order'),
+				'qty'=> 	$name = $this->input->post('qty'),
+				'price'=> 	$name = $this->input->post('price'),
 
 				);
+			
 			$this->ordering_model->insert_oder($data);
-			echo"done";
-		}else{
-			echo"something w";
-				
+			
 		}
 }
 
 public function get_orders(){
 	
 	$data['list'] = $this->ordering_model->get_orders();
+	
+	$data['get_total'] = $this->ordering_model->get_tots();
+	
 	$this->parser->parse('ordering/ordering_list',$data);
 }
 
@@ -59,6 +65,15 @@ $this->ordering_model->delete_order_mo($id);
 
 }
 
+public function edit_order(){
+
+$id = $this->input->post('id');
+
+$data['list'] = $this->ordering_model->get_edit($id);
+
+$this->parser->parse('ajax/ajax_edit_orders',$data);
+
+}
 
 }
 

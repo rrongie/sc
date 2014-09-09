@@ -1,19 +1,51 @@
-{list}
-<div class="col-lg-4">
-       <div class="well">
-			<button title='DELETE'  data-conid="{id}"rel='tooltip' data-placement='bottom'class="delete btn btn-xs btn-danger pull-right"><i class=" fa fa-times"></i></button>
-			<button title='EDIT'  data-id="{id}"rel='tooltip' data-placement='bottom'class=" edit btn btn-xs btn-primary pull-right"><i class="fa fa-edit"></i></button>
+<?php 
 
-			<label>Name:</label> <span class="noedit">{name}</span><br>
-			<input data-id="{id}"class="editme"><br>
-			<label>Order:</label> <span class="noedit">{order}</span><br>
-			<input data-id="{id}"class="editme"><br>
-			<button data-id="{id}"style="margin-top:10px;"class="editme btn btn-xs btn-primary">UPDATE</button>
-        </div><!-- end of well -->
- </div> <!-- end og col-lg-4-->
+			foreach($get_total as $row){
+				$qty = $row->qty;
+				$price =$row->price;
+				$total = $qty * $price ;  
+
+				echo '<div class="col-lg-4">';
+				echo '<div class="well"> ';
+				
+				echo'<button title="DELETE" data-conid=" '.$row->id.' "  rel="tooltip" data-placement="bottom" class="delete btn btn-xs btn-danger pull-right"><i class="fa fa-times"></i></button>';
+				echo'<button title="EDIT" data-conid=" '.$row->id.' "  rel="tooltip" data-placement="bottom" class="edit btn btn-xs btn-primary pull-right"><i class="fa fa-edit"></i></button>';
+
+				echo '<label>Name:&nbsp;</label>'; echo'<span>' .$row->name. '</span><br>';
+				echo '<label>Order:&nbsp;</label>'; echo'<span>' .$row->order. '</span><br>';
+				echo '<label>qty: &nbsp;</label>'; echo'<span>' .$row->qty. '</span><br>';
+				echo '<label>Price: &nbsp;</label>'; echo'<span>' .$row->price. '</span><br>';
+				echo '<label>Total: &nbsp;</label>'; echo'<span>' .$total. '</span><br>';
+				
+				echo'</div>';//end of well//
+				echo'</div>'; //end of col-lg-4//
+			}
+
+			?>
 
 
-     {/list}
+
+<!--modal for edit order-->
+<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+       
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <center><label>EDIT ORDER</label></center>
+      </div>
+      <div class="modal-body modal-area">
+        <!-- boody here -->                      
+
+   <!-- end of body -->
+ </div>
+
+</div>
+</div>
+</div>
+
+<!-- end of modal-->
+
 
 
 
@@ -27,10 +59,7 @@
 //ajax for delete//
 $(document).on('click','.delete',function(e){
 e.preventDefault();
-
 var id = $(this).data('conid');
-
-//alert(id);
 var $orders =$(this).closest('div');
 
 $.ajax({
@@ -44,18 +73,17 @@ $.ajax({
 });
 
 });
-//edt//
+
+
 $(document).on('click','.edit',function(e){
 e.preventDefault();
+var	id = $(this).data('conid');
 
-var dataID = $(this).attr("data-id");
-//alert(dataID);
- 
- $(".editme[data-id=" + dataID + "]").toggle('slow');
-
+$('.modal-area').load('<?php echo site_url('ordering/edit_order')?>', {id: id});
+$('#myModal').modal('show');
 
 
 });
-
 </script>
+
 
