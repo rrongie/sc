@@ -41,39 +41,36 @@ margin-left: 390px;
                 <div class="col-lg-12">
                     <h2 class="page-header text-center">jQuery + Ajax form validation </h2>
                     
-                </div>
+                </div>  <!-- /.col-lg-12 -->
                
 
                 <div class="panel-body">
 
+                    <div id="error_message" style="color:red" class="text-center"></div>
+                    <form id="form2">
 
 
-<div id="error_message" style="color:red" class="text-center"></div>
-<form id="form2">
+                     <label>Username :</label><br>
+                     <input id="user_name" name="user_name" id="user_name"type="text" value="<?php echo set_value('user_name'); ?>"><span id="usr_verify" class="verify"></span><br />
+
+                      <label>Email :</label> <br>
+                     <input id="email_address" name="email_address" value="<?php echo set_value('email_address'); ?>"type="text"><span id="email_verify" class="verify"></span><br />
+
+                    <label>Password :</label> <br>
+                    <input type="password" id="password" name="password"><span id="password_verify" class="verify"></span> <br />
+
+                    <label>Confirm Password :</label> <br>
+                    <input type="password" id="con_password" name="con_password"><span id="confrimpwd_verify" class="verify"></span> <br />
+
+                    <input type="button" id="submit" style="margin-top:10px;" value="submit"class="btn btn-primary">
 
 
- <label>Username :</label><br>
- <input id="user_name" name="user_name" id="user_name"type="text" value="<?php echo set_value('user_name'); ?>"><span id="usr_verify" class="verify"></span><br />
-
-  <label>Email :</label> <br>
- <input id="email_address" name="email_address" value="<?php echo set_value('email_address'); ?>"type="text"><span id="email_verify" class="verify"></span><br />
-
-<label>Password :</label> <br>
-<input type="password" id="password" name="password"><span id="password_verify" class="verify"></span> <br />
-
-<label>Confirm Password :</label> <br>
-<input type="password" id="con_password" name="con_password"><span id="confrimpwd_verify" class="verify"></span> <br />
-
-<input type="button" id="submit" style="margin-top:10px;" value="submit"class="btn btn-primary">
+                    </form>
 
 
-</form>
+                </div><!--pnael body -->
 
-
-    
- </div><!--pnael body -->
-
-                <!-- /.col-lg-12 -->
+              
             </div>
             <!-- /.row -->
         </div>

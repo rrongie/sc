@@ -1,10 +1,8 @@
-
-
 {list}
-<?php
+                <?php
                   $attributes = array('class' => 'form-horizontal');
                   echo form_open('ordering/validate_edit_order/{id}', $attributes);
-            ?>
+                  ?>
     <!-- Text input-->
                         <div class="control-group">
                           <label class="control-label" for="name">Name</label>
@@ -43,12 +41,7 @@
 
 
                         <!-- Button -->
-                        
-                        <hr>	
+                      <hr>	
                             <button id="submit" name="submit" class="btn btn btn-primary">Save</button>
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                        
-
-
-
 {/list}

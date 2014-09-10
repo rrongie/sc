@@ -1,6 +1,5 @@
 <script type="text/javascript">
   
-
 $(document).on('click', '#submit', function(e){
 e.preventDefault();
 
@@ -14,12 +13,9 @@ $.ajax({
 });
 
 
-
 });
 
 </script>
-
-
 <form id="form1"class="form-horizontal">
 <fieldset>
 

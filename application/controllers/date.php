@@ -25,8 +25,7 @@ class Date extends CI_Controller {
 
 	$this->form_validation->set_rules('from', 'from', 'trim|required|xss_clean|callback_check_date['.$from.'++'.$to.']');
 
-
- 	if($this->form_validation->run() ){
+	if($this->form_validation->run() ){
 
 	$list = $this->date_model->get_date($from,$to);
 	
@@ -40,10 +39,7 @@ class Date extends CI_Controller {
 			</tr>
 		</thead>
 		<tbody>';
-
-
-
-			foreach ($list as $row) {
+		foreach ($list as $row) {
 				echo '<tr>
 			
 				<td>'.$row->name.'</td>
