@@ -11,7 +11,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Source Code</a>
+                <a class="navbar-brand" href="index.html">{sourceCode}</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -84,7 +84,18 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                 
+                        
+                         <li>
+                            <a href="#"><i class="fa fa-calendar fa-fw"></i>Date<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url(). 'date/index'?>">Date Range</a>
+                                </li>
+
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
                        
                     </ul>
                 </div>
