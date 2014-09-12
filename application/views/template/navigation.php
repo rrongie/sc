@@ -89,9 +89,12 @@
                             <a href="#"><i class="fa fa-calendar fa-fw"></i>Date<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
+                                    <a href="<?php echo base_url(). 'date/date_format'?>">Date and time formating</a>
+                                </li>
+                                <li>
                                     <a href="<?php echo base_url(). 'date/index'?>">Date Range</a>
                                 </li>
-
+                               
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

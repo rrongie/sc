@@ -10,4 +10,13 @@ public function get_date($from,$to){
 	return $query->result();
 	}	
 
+
+public function get_dates(){
+		$this->db->select('date');
+		$this->db->from('ordering');
+		$query = $this->db->get();
+		return $query->result();
+}
+
+
 }
