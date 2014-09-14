@@ -24,40 +24,17 @@ public function search_date(){
 	$to = $this->input->post('to');
 
 	$this->form_validation->set_rules('from', 'from', 'trim|required|xss_clean|callback_check_date['.$from.'++'.$to.']');
-
+	$this->form_validation->set_rules('to', 'to', 'trim|required|xss_clean');
 	if($this->form_validation->run() ){
 
-	$list = $this->date_model->get_date($from,$to);
+	$data['list'] = $this->date_model->get_date($from,$to);
+	$data['total'] = $this ->date_model->get_total($from,$to);
 	
-	echo '<table class="table table-hover">
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>Order</th>
-				<th>Date</th>
-			
-			</tr>
-		</thead>
-		<tbody>';
-		foreach ($list as $row) {
-				echo '<tr>
-			
-				<td>'.$row->name.'</td>
-				<td>'.$row->order.'</td>
-				<td>'.date('m/d/Y h:i A', strtotime($row->date)).'</td>
-
-				</tr>';
-				
-			}
-
-			if($list == NULL){
-			echo"No results(s);";
-			}
-
-		echo '</tbody>';
+	$this->parser->parse('date/date_range_result_view',$data);
 
 	}else{
-		echo'check your DATE  >from: must not less than to:<';
+		echo validation_errors();
+		//echo'check your DATE  >from: must not less than to:<';
 	}
 
 }
@@ -69,6 +46,7 @@ public function check_date($default,$dates){
 	 if ( $date[0] < $date[1] ) {
 	   return True;
 	  }else{
+	  	$this->form_validation->set_message('check_date', 'Check your time to: must not earlier than From:');
 	  	return False;
 	  }
 

@@ -10,8 +10,8 @@
             
 
              <div class="show-result">
-
-               </div>
+                <!-- show results date -->
+            </div>
 
             <!-- /.row -->
         </div>

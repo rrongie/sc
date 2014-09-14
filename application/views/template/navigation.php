@@ -99,6 +99,20 @@
                             <!-- /.nav-second-level -->
                         </li>
 
+                        <li>
+                            <a href="#"><i class="fa fa-search fa-fw"></i>Search<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url(). 'search/index'?>">Basic search</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url(). 'date/index'?>">Search with category and sub-category</a>
+                                </li>
+                               
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
                        
                     </ul>
                 </div>

@@ -18,7 +18,7 @@ input[type="date"]::-webkit-inner-spin-button {
         <div class="panel-body">
             <div class="well">
                 <form id="search">
-                <label>From</label><input type="date" name="from" class="text-center"> <label>To:</label><input type="date" name="to"> <button class="btn  btn-circle btn-primary" id="go">Go</button>
+                <label>From</label><input type="date" name="from" required> <label>To:</label><input type="date" name="to"> <button class="btn  btn-circle btn-primary" id="go">Go</button>
                 </form>
                 <div>&nbsp;</div>
                <div class="show_result"><!-- show results here --></div>

@@ -41,7 +41,9 @@
 </head>
 
 <body>
-    <script>
+ 
+
+   <script>
     $.ajaxSetup({
        beforeSend: function() {
         $('#general-ajax-load ').fadeIn();
@@ -51,4 +53,3 @@
         $('#general-ajax-load ').fadeOut();
     }
 });    </script>
-
