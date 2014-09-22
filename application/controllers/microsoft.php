@@ -102,6 +102,36 @@ header("Content-disposition: attachment; filename=\"name_here.doc\"");
 exit;
 }
 
+
+public function convert_to_excel(){
+	$this->load->view('template/header');
+	$this->load->view('template/navigation');
+	$this->load->view('microsoft/convert_to_excel_view');
+	$this->load->view('template/footer');
+
+
+}
+public function get_all_ordering_to_excel(){
+
+
+   $this->load->helper('php-excel');
+   $query = $this->microsoft_model->get_to_excel();
+
+   $fields = (
+   $field_array[] = array ("Date","Name", "Order", "Qty","Price")
+                   );
+   foreach ($query as $row)
+         {
+          $data_array[] = array( $row->date, $row->name, $row->order, $row->qty,$row->price );
+         }
+
+   $xls = new Excel_XML;
+   $xls->addArray ($field_array);
+   $xls->addArray ($data_array);
+   $xls->generateXML ( "output_name" );
+
+
+}
 }
 
 /* End of file welcome.php */

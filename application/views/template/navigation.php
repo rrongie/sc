@@ -105,7 +105,9 @@
                                 <li>
                                     <a href="<?php echo base_url(). 'microsoft/convert_to_word'?>">Convert to Word</a>
                                 </li>
-                              
+                                   <li>
+                                    <a href="<?php echo base_url(). 'microsoft/convert_to_excel'?>">Convert to Excel</a>
+                                </li>
                                
                             </ul>
                             <!-- /.nav-second-level -->

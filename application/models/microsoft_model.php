@@ -8,7 +8,13 @@ public function get_to_word(){
 		$query = $this->db->get();
 		return $query->result();
 }
-
+public function get_to_excel(){
+	$this->db->select('*');
+	$this->db->from('ordering');
+	 $this->db->order_by("date","desc");
+	$query = $this->db->get();
+	return $query->result();
+}
 
 
 }
