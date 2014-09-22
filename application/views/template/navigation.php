@@ -100,14 +100,12 @@
                         </li>
 
                         <li>
-                            <a href="#"><i class="fa fa-search fa-fw"></i>Search<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i>Microsoft Office<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url(). 'search/index'?>">Basic search</a>
+                                    <a href="<?php echo base_url(). 'microsoft/convert_to_word'?>">Convert to Word</a>
                                 </li>
-                                <li>
-                                    <a href="<?php echo base_url(). 'date/index'?>">Search with category and sub-category</a>
-                                </li>
+                              
                                
                             </ul>
                             <!-- /.nav-second-level -->

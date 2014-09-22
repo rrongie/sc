@@ -33,5 +33,17 @@ public function get_edit($id){
 	return $sql->result();
 }
 
+public function get_income(){
+	$this->db->select_sum('total');
+	$this->db->from('ordering');
+	$query = $this->db->get();
+	return $query->result();
+}
+
+public function test(){
+ $sql = $this->db->get('ordering');
+    return $sql->result_array();
+
+}
 
 }

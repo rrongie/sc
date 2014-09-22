@@ -15,7 +15,7 @@ public function get_date($from,$to){
 public function get_total($from,$to){
 	$this->db->where('date >=', $from);
 	$this->db->where('date <=', $to);
-	$this->db->select_sum('price');
+	$this->db->select_sum('total');
 	$this->db->from('ordering');
 	$query = $this->db->get();
 	return $query->result();

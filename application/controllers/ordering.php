@@ -11,9 +11,12 @@ class Ordering extends CI_Controller {
 
 public function index()
 	{
+	
+	$data['income'] = $this->ordering_model->get_income();
+	//var_dump($data);
 	$this->load->view('template/header');
 	$this->load->view('template/navigation');
-	$this->load->view('ordering/ordering_view');
+	$this->parser->parse('ordering/ordering_view',$data);
 	$this->load->view('template/footer');
 	}
 
@@ -33,11 +36,11 @@ public function insert_order(){
 		}else{
 			$data = array(
 
-				'name'=> 	$name = $this->input->post('name'),
-				'order'=> 	$name = $this->input->post('order'),
-				'qty'=> 	$name = $this->input->post('qty'),
-				'price'=> 	$name = $this->input->post('price'),
-
+				'name'=> $this->input->post('name'),
+				'order'=> $this->input->post('order'),
+				'qty'=>  $this->input->post('qty'),
+				'price'=>  $this->input->post('price'),
+				'total' => $this->input->post('total')
 				);
 			
 			$this->ordering_model->insert_oder($data);
@@ -48,14 +51,16 @@ public function insert_order(){
 
 public function get_orders(){
 	
-	$data['list'] = $this->ordering_model->get_orders();
+	//$data['list'] = $this->ordering_model->get_orders();
 	$data['get_total'] = $this->ordering_model->get_tots();
+	
 	$this->parser->parse('ordering/ordering_list',$data);
 }
 
 
 public function delete_order($id){
 	$this->ordering_model->delete_order_mo($id);
+//	$this->session->set_flashdata('success-delete', 'Successfully Delete!');
 }
 
 public function edit_order(){

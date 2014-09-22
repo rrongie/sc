@@ -10,6 +10,6 @@
 <hr>
 {total}
 <div class="well">
-<b>total:</b>{price}
+<b>total:</b>{total}
 </div>
 {/total}

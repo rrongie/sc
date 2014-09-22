@@ -30,6 +30,7 @@
               
                     } 
 
+                    
 
                     ?>     
                     <form id="order_form">
@@ -39,7 +40,7 @@
                                 <div class="control-group">
                                   <label class="control-label" for="name">Name</label>
                                   <div class="controls">
-                                    <input id="name" name="name" type="text"  required="" autofocus>
+                                    <input id="name" name="name" type="text" class="form-control" required="" autofocus>
                                     
                                   </div>
                                 </div>
@@ -48,16 +49,17 @@
                                 <div class="control-group">
                                   <label class="control-label" for="order">Order:</label>
                                   <div class="controls">
-                                    <input id="order" name="order" type="text" placeholder="" class="input-large" required>
+                                    <input id="order" name="order" type="text" placeholder="" class="form-control" required>
                                     
                                   </div>
                                 </div>
-
-                                <!-- Text input-->
+                                <div id="generate">
+                                  <div class="checker">
+                                <!--  Text input-->
                                 <div class="control-group">
                                   <label class="control-label" for="qty">Qty:</label>
                                   <div class="controls">
-                                    <input id="qty" name="qty" type="number"  style="width: 90px;" required="">
+                                    <input id="qty" name="qty" type="number" class="qty form-control"style="width: 90px;" required="">
                                     
                                   </div>
                                 </div>
@@ -66,11 +68,21 @@
                                 <div class="control-group">
                                   <label class="control-label" for="price">Price:</label>
                                   <div class="controls">
-                                    <input id="price" name="price" type="number"  style="width:90px;"placeholder=""required="">
+                                    <input id="price" name="price" type="number" class="price form-control"style="width:90px;"placeholder=""required="">
                                     
                                   </div>
                                 </div>
 
+
+                                  <div class="control-group">
+                                  <label class="control-label" for="price">Total:</label>
+                                  <div class="controls">
+                                    <input name="total" type="number" id="tots" class="form-control" style="width:90px;"readonly>
+                                    
+                                  </div>
+                                </div>
+                              </div><!-- end of checker -->
+                              </div><!-- end of generate
 
                                 <!-- Button -->
                                 <div class="control-group">
@@ -81,7 +93,13 @@
                                 </div>
 
                    </form> 
-                </div><!-- end of well -->
+                     </div><!-- end of well -->
+                    <!-- income -->
+                     <p></p>
+                 <div class="well"><b>Total Income:</b>{income}{total}{/income} <br>
+                  <button class="btn btn-xs btn-default">update</button>
+                </div>
+                  <!-- end of income -->
             </div> <!-- end of aadd order -->
         
              <div class="orders"> <!-- show orders via ajax --></div> 
@@ -135,10 +153,27 @@ $(".remove").fadeOut(400);
  
 })
 
+</script>
+<script>
 $(document).ready(function(){
 
+    $('#generate input').change(function(){
 
- //   $('#dragme').drags();
+      var $row = $(this).closest('.checker');
+
+     
+      var qty = parseInt($row.find('.qty').val());
+      var price = parseInt($row.find('.price').val());
+
+      
+      var total = qty * price;
+      
+      document.getElementById('tots').value='' + total ; 
+      
+
+
+    });
+
 });
 </script>
 

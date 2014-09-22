@@ -1,21 +1,21 @@
 <?php 
 
 			foreach($get_total as $row){
-				$qty = $row->qty;
-				$price =$row->price;
-				$total = $qty * $price ;  
+				
 
 				echo '<div class="col-lg-4 pull-left">';
 				echo '<div class="well"> ';
 				
 				echo'<button title="DELETE" data-conid=" '.$row->id.' "  rel="tooltip" data-placement="bottom" class="delete btn btn-xs btn-danger pull-right"><i class="fa fa-times"></i></button>';
+				
+
 				echo'<button title="EDIT" data-conid=" '.$row->id.' "  rel="tooltip" data-placement="bottom" class="edit btn btn-xs btn-primary pull-right"><i class="fa fa-edit"></i></button>';
 
 				echo '<label>Name:&nbsp;</label>'; echo'<span>' .$row->name. '</span><br>';
 				echo '<label>Order:&nbsp;</label>'; echo'<span>' .$row->order. '</span><br>';
 				echo '<label>qty: &nbsp;</label>'; echo'<span>' .$row->qty. '</span><br>';
 				echo '<label>Price: &nbsp;</label>'; echo'<span>' .$row->price. '</span><br>';
-				echo '<label>Total: &nbsp;</label>'; echo'<span>' .$total. '</span><br>';
+				echo '<label>Total: &nbsp;</label>'; echo'<span>' .$row->total. '</span><br>';
 				
 				echo'</div>';//end of well//
 				echo'</div>'; //end of col-lg-4//
@@ -59,8 +59,11 @@
 //ajax for delete//
 $(document).on('click','.delete',function(e){
 e.preventDefault();
+
 var id = $(this).data('conid');
 var $orders = $(this).closest('div');
+
+ if (confirm('Are you sure you want to delete this?')) {
 
 $.ajax({
 	type:'GET',
@@ -71,6 +74,8 @@ $.ajax({
     }
 
 });
+
+}
 
 });
 
