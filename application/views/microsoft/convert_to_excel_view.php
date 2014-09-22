@@ -15,7 +15,7 @@
                 <div>&nbsp;</div>
                 <div class="col-lg-3">
                     
-                    <?php echo form_open('microsoft/convert_input_to_word')?>
+                    <?php echo form_open('microsoft/convert_input_to_excel')?>
                     <div class="form-group">
                         <label class="control-label" for="inputSmall">Name:</label>
                         <input class="form-control input" type="text"  name="name" required>

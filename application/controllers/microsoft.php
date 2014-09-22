@@ -112,8 +112,7 @@ public function convert_to_excel(){
 
 }
 public function get_all_ordering_to_excel(){
-
-
+   
    $this->load->helper('php-excel');
    $query = $this->microsoft_model->get_to_excel();
 
@@ -131,6 +130,27 @@ public function get_all_ordering_to_excel(){
    $xls->generateXML ( "output_name" );
 
 
+}
+public function convert_input_to_excel(){
+	$this->load->helper('php-excel');
+	$name=$this->input->post('name');
+	$order=$this->input->post('order');
+	$price=$this->input->post('price');
+	$qty=$this->input->post('qty');
+
+
+	$field_array[] = array ("Name", "Order", "Qty","Price");
+	$data_array[] = array( "Name" => $name, 
+					   "order" => $order,
+					   "qty" => $qty,
+					   "price" => $price,
+					   
+					   );
+     
+   $xls = new Excel_XML;
+   $xls->addArray ($field_array);
+   $xls->addArray ($data_array);
+   $xls->generateXML ( "output_name" );
 }
 }
 
