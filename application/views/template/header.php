@@ -37,6 +37,8 @@
     <!-- data tables js -->
     <script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery.dataTables.min.js'?>"></script>
     <script type="text/javascript" src="<?php echo base_url() . 'assets/js/dataTables.tableTools.min.js'?>"></script>
+<!-- google api -->
+ <script type="text/javascript" src="<?php echo base_url() . 'assets/js/google.jsapi.js'?>"></script>
 
 </head>
 

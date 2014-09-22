@@ -116,13 +116,13 @@
 
 
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart fa-fw"></i>Satistics<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-bar-chart fa-fw"></i>Statistics<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url(). 'microsoft/convert_to_word'?>">Chart</a>
+                                    <a href="<?php echo base_url(). 'statistics/bar_graph'?>">Bar Graph</a>
                                 </li>
                                    <li>
-                                    <a href="<?php echo base_url(). 'microsoft/convert_to_excel'?>">Convert to Excel</a>
+                                    <a href="<?php echo base_url(). 'statistics/pie_graph'?>">Pie chart</a>
                                 </li>
                                
                             </ul>
