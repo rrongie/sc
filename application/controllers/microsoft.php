@@ -8,7 +8,6 @@ class Microsoft extends CI_Controller {
 		
 	}
 
-
 	public function convert_to_word(){
 	$this->load->view('template/header');
 	$this->load->view('template/navigation');
@@ -62,6 +61,47 @@ class Microsoft extends CI_Controller {
 	exit;
 
 	}
+
+public function convert_input_to_word(){
+
+
+header("Content-Type: application/vnd.ms-word");
+header("Expires: 0");
+header("Cache-Control:  must-revalidate, post-check=0, pre-check=0");
+header("Content-disposition: attachment; filename=\"name_here.doc\"");
+
+
+	$name=$this->input->post('name');
+	$order=$this->input->post('order');
+	$price=$this->input->post('price');
+	$qty=$this->input->post('qty');
+
+	echo'
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Order</th>
+    <th>Qty</th>
+    <th>Price</th>
+     
+  </tr>
+  <tr>
+    <td> '.$name.'</td>
+    <td> '.$order.'</td>
+    <td> '.$qty.'</td>
+    <td> '.$price.'</td>
+   
+  </tr>
+</table>
+
+
+
+';
+
+exit;
+}
+
 }
 
 /* End of file welcome.php */
