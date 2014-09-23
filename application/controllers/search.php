@@ -17,8 +17,7 @@ public function get_search(){
 
 	$data['query'] = $query['rows'];
 
-
-	var_dump($query);
+	$this->parser->parse('search/search_result',$data);
 
 }
 

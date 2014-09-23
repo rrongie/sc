@@ -129,6 +129,61 @@
                             <!-- /.nav-second-level -->
                         </li>
 
+
+                            <li>
+                            <a href="#"><i class="fa fa-shopping-cart fa-fw"></i>Cart<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url(). 'cart/index'?>">Cart</a>
+                                </li>
+                                  
+                               
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+
+
+
+                        <li>
+                            <a href="#"><i class="fa fa-search fa-fw"></i>Search<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url(). 'search/index'?>">Ajax Search</a>
+                                </li>
+                                  
+                               
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+
+
+                               <li>
+                            <a href="#"><i class="fa fa-gear fa-fw"></i>AJAX<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url(). 'ajax/index'?>">Ajax Guide</a>
+                                </li>
+                                  
+                               
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+
+                                  <li>
+                            <a href="#"><i class="fa fa-gears fa-fw"></i>JQUERY & JS<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url(). 'jjs/index'?>">JQUERY  & JS Guide</a>
+                                </li>
+                                  
+                               
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
                        
                     </ul>
                 </div>
