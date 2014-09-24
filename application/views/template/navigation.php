@@ -172,11 +172,24 @@
                         </li>
 
 
-                                  <li>
+                        <li>
                             <a href="#"><i class="fa fa-gears fa-fw"></i>JQUERY & JS<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="<?php echo base_url(). 'jjs/index'?>">JQUERY  & JS Guide</a>
+                                </li>
+                                  
+                               
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+
+                        <li>
+                            <a href="#"><i class="fa fa-folder fa-fw"></i>DATABASE<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url(). 'database/index'?>"> CI MODEL Guide</a>
                                 </li>
                                   
                                

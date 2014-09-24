@@ -10,23 +10,33 @@ function __construct(){
 
 public function index(){
 	
-	 $data['item'] = $this->cart_model->retrieve_products();
+	$cart['item'] = $this->cart_model->retrieve_products();
 
-	 //var_dump($data);
-	
-  
+	$cart['updated_cart'] = $this->cart_model->check_product_qty($this->cart->contents());
+  	//var_dump($cart);
+	$cart['ready_checkout'] = $this->cart_model->check_checkout($this->cart->contents());
+	//var_dump($cart);
 	$this->load->view('template/header');
 	$this->load->view('template/navigation');
-	$this->parser->parse('cart/cart_view', $data);
+	
+	if (count($this->cart->contents()) == 0) {
+			$this->parser->parse('cart/cart_empty_view', $cart);
+		}else{
+			$this->parser->parse('cart/cart_view', $cart);
+		}
+	
 	$this->load->view('template/footer');
 	}
 
 public function add_cart(){
-	
+	//$cart = $this->cart->contents(); check the content of the cart
+	//var_dump($cart);
 	$id = $this->input->post('product_id');
 	$qty = $this->input->post('quantity');
 	$item = $this->cart_model->get($id);
 	
+
+
 	$item_info = array(
                'id'      => $id,
                'qty'     => $qty,
@@ -34,6 +44,8 @@ public function add_cart(){
                'price'   => $item[0]['price'],
 				);
 	$this->cart->insert($item_info);
+ 	
+
  	redirect('cart');
 }
 

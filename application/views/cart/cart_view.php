@@ -20,8 +20,9 @@
 <label>PRICE:</label>
 <?php echo $p['price']; ?><br>
 <?php echo form_open('cart/add_cart'); ?>
-
-<?php echo form_input('quantity', '1', 'maxlength="2"'); ?>
+<label>STOCKS:</label>
+<?php echo $p['stocks']; ?><br>
+<?php echo form_input('quantity', '1'); ?>
 <?php echo form_hidden('product_id', $p['id']); ?>
 <p></p>
 <?php echo form_submit('add', 'Add','class="btn btn-xs btn-primary"'); ?>
@@ -33,40 +34,39 @@
 </div>
 
 
-<div class="col-lg-4">
-<?php if($cart = $this->cart->contents()): ?>
+<div class="col-lg-7">
+
 <table class="table">
 
 <thead>
-     <th>Quantity</th>
+    <th>Quantity</th>
     <th>Item</th>
     <th>Price</th>
-
-  
+    <th>Subtotal</th>
+    <th>Note</th>
+     <th>Action</th>
 </thead>
 
-
-<?php foreach($cart as $item){
-
-echo'
+     {updated_cart}
     <tr>
-     
-       <td> '.$item['qty'].' </td>
-       <td> '.$item['name'].' </td>
-       <td> '.$item['subtotal'].' </td>
-       <td> <a class="delete"href="cart/remove_cart/'.$item['rowid'].'"> <i class="btn btn-xs btn-danger fa fa-times"></i></td>
-       
+
+       <td><input type="text" value="{qty}" size="2"> </td>
+       <td> {name} </td>
+       <td> {price} </td>
+       <td> {subtotal} </td>
+       <td>{availability}</td>
+          <td><a class="delete"href="<?php echo base_url(). 'cart/remove_cart/{rowid}'?>"> <i class="btn btn-xs btn-danger fa fa-times"></i></td>
     </tr>
-
-';
-}?>
-   <td colspan="2"><b>TOTAL</b></td>
+ 
+ 
+  {/updated_cart}
+ <td colspan="3"><b>TOTAL</b></td>
    <td><?php echo $this->cart->total();?></td>
-
-
 </table>
+ <input type="hidden" id="validated_cart" name="validated_cart" value="{ready_checkout}">
+   <button id="checkout_submit" type="submit" class="btn btn-xs btn-success pull-right">Proceed to Checkout</button>
 
-<?php endif; ?>
+
 </div>
 
 
@@ -80,3 +80,24 @@ echo'
 
 
 
+<script type="text/javascript">
+
+
+              $(function(){
+                
+                var qty = $('#validated_cart').val();                
+
+                if (qty == 0 ) {
+                  $('#checkout_submit').addClass('disabled');
+                }
+
+
+                $(document).on('keyup', '.qty', function(){
+
+                  $('#checkout_submit').addClass('disabled');
+
+                } );
+
+              });
+               
+            </script>
