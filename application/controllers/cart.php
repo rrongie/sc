@@ -28,11 +28,10 @@ public function index(){
 	$this->load->view('template/footer');
 	}
 
-public function add_cart(){
+public function add_cart($qty=1){
 	//$cart = $this->cart->contents(); check the content of the cart
 	//var_dump($cart);
 	$id = $this->input->post('product_id');
-	$qty = $this->input->post('quantity');
 	$item = $this->cart_model->get($id);
 	
 
@@ -50,6 +49,9 @@ public function add_cart(){
 }
 
 
+
+
+
 public function remove_cart($rowid){
 	$data = array(
 		    'rowid'   => $rowid,
@@ -61,9 +63,47 @@ public function remove_cart($rowid){
 		redirect('cart');
 }
 
+public function update(){
+		/*
+			@task Remember to add codes here to update the cart
+		*/	
+		$update = $this->input->post('cart');
 
+		foreach ($update as $key => $value) {
+
+			$data[] = array_merge(array('rowid' => $key, 'qty' => $value));
+		}
+
+		if ($this->cart->update($data)) {
+
+			redirect('cart');
+
+		}else{
+			redirect('cart');
+		}
+
+		
+	}
+
+
+public function checkout(){
+	
+	$cart= $this->cart->contents();
+	$cart_stock = $this->cart_model->minus_stock($this->cart->contents());
+
+	//insert order//
+	//$order_data = array('order_id' => random_string('alnum', 16),
+    //						'order_total' => $this->cart->total(),
+	//					'dateorder' => date('Y-m-d H:i:s'),
+	//					'cart_data' => serialize($cart)
+	//								); 
+	//$this->cart_model->insert_order_data($order_data);
+	$this->cart->destroy();
+	redirect('cart');
 
 }
 
+
+}
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */

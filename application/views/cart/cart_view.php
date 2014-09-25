@@ -22,7 +22,7 @@
 <?php echo form_open('cart/add_cart'); ?>
 <label>STOCKS:</label>
 <?php echo $p['stocks']; ?><br>
-<?php echo form_input('quantity', '1'); ?>
+
 <?php echo form_hidden('product_id', $p['id']); ?>
 <p></p>
 <?php echo form_submit('add', 'Add','class="btn btn-xs btn-primary"'); ?>
@@ -49,23 +49,28 @@
 
      {updated_cart}
     <tr>
-
-       <td><input type="text" value="{qty}" size="2"> </td>
+             <?php $attributes = array('class' => 'form-horizontal', 'id' => 'cart');
+                                    echo form_open('cart/update', $attributes);?>
+       <td><input type="text" class="qty" name="cart[{rowid}]"value="{qty}" size="2"> </td>
        <td> {name} </td>
        <td> {price} </td>
        <td> {subtotal} </td>
        <td>{availability}</td>
-          <td><a class="delete"href="<?php echo base_url(). 'cart/remove_cart/{rowid}'?>"> <i class="btn btn-xs btn-danger fa fa-times"></i></td>
+       <td><a class="delete"href="<?php echo base_url(). 'cart/remove_cart/{rowid}'?>"> <i class="btn btn-xs btn-danger fa fa-times"></i></td>
     </tr>
- 
- 
+         
   {/updated_cart}
- <td colspan="3"><b>TOTAL</b></td>
-   <td><?php echo $this->cart->total();?></td>
+       <td colspan="3"><b>TOTAL</b></td>
+       <td><?php echo $this->cart->total();?></td>
 </table>
- <input type="hidden" id="validated_cart" name="validated_cart" value="{ready_checkout}">
+    
+    <button type="submit" href="#" class="pull-right btn btn-xs btn-primary">Update Cart</button><br>
+          <?php echo form_close(); ?>
+   <input type="hidden" id="validated_cart" name="validated_cart" value="{ready_checkout}"><br>
+                <?php $attributes = array('class' => 'form-horizontal', 'id' => 'check_out_validate');
+                                          echo form_open('cart/checkout', $attributes);?>
    <button id="checkout_submit" type="submit" class="btn btn-xs btn-success pull-right">Proceed to Checkout</button>
-
+                <?php echo form_close();?>
 
 </div>
 
@@ -76,9 +81,6 @@
         <!-- /#page-wrapper -->
 </div>
     <!-- /#wrapper -->
-
-
-
 
 <script type="text/javascript">
 

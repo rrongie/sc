@@ -19,7 +19,7 @@
 <?php echo form_open('cart/add_cart'); ?>
 <label>STOCKS:</label>
 <?php echo $p['stocks']; ?><br>
-<?php echo form_input('quantity', '1'); ?>
+
 <?php echo form_hidden('product_id', $p['id']); ?>
 <p></p>
 <?php echo form_submit('add', 'Add','class="btn btn-xs btn-primary"'); ?>

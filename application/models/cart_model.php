@@ -84,7 +84,18 @@ public function check_checkout($contents){
 		return $data;
 	}
 
+public function minus_stock($contents){
 
+
+	$data =array();
+	foreach ($contents as $key => $value) {
+				 	$id = $value['id'];
+				 	$qty = $value['qty'];
+				 	$this->db->query("UPDATE stock_item SET stocks = stocks - $qty WHERE id = '$id' ");
+				
+				 }
+	return $data;			 
+}
 
 }
 
